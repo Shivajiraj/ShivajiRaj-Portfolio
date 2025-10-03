@@ -8,74 +8,137 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      color: #333;
+      background: #111;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #222;
-      padding: 1rem 2rem;
+      background: #000;
+      color: #ff7b00;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .navbar h1 {
-      color: #fff;
+
+    .nav-center h1 {
       margin: 0;
+      font-size: 1.8em;
+      text-align: center;
+      color: #ff7b00;
     }
+
     .nav-right a {
-      color: #fff;
+      color: #ff7b00;
       text-decoration: none;
-      margin-left: 1rem;
-      transition: color 0.3s;
+      margin-left: 20px;
+      font-size: 1em;
+      transition: color 0.3s, transform 0.3s;
     }
+
     .nav-right a:hover {
-      color: #ff9800;
+      color: #fff;
+      transform: scale(1.1);
     }
+
     .content {
-      padding: 2rem;
+      flex: 1;
       max-width: 900px;
-      margin: auto;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
     }
+
     .tab {
-      background: #fff;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: #1a1a1a;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s, background 0.3s;
+      animation: slideUp 1s ease forwards;
     }
+
+    .tab:hover {
+      transform: translateY(-5px);
+      background: #222;
+    }
+
     .tab h2 {
-      margin-top: 0;
-      color: #222;
+      color: #ff7b00;
+      margin-bottom: 15px;
     }
+
     .tab ul {
-      list-style-type: none;
-      padding: 0;
+      color: #ddd;
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: left;
+      list-style-type: disc;
+      margin-left: 1.5rem;
     }
-    .tab ul li {
-      margin: 0.5rem 0;
-    }
+
     .tab ul li a {
+      color: #ff7b00;
       text-decoration: none;
-      color: #007BFF;
-      font-weight: bold;
       transition: color 0.3s;
     }
+
     .tab ul li a:hover {
-      color: #0056b3;
+      color: #fff;
     }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #fff;
-      margin-top: 2rem;
+      background: #000;
+      color: #ff7b00;
+      padding: 15px 0;
+      margin-top: auto;
     }
+
     .fade-in {
-      animation: fadeIn 1s ease-in;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s forwards;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-right {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-right a {
+        margin: 0 10px;
+      }
+
+      .nav-center h1 {
+        font-size: 1.5em;
+      }
+
+      .tab {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -110,4 +173,3 @@
   </footer>
 </body>
 </html>
-
